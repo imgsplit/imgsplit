@@ -1,5 +1,6 @@
 import typescript from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
+import {dts} from 'rollup-plugin-dts';
 
 function genOption(format) {
     const ext = format === 'esm' ? 'mjs' : format;
@@ -13,22 +14,28 @@ function genOption(format) {
     }
 }
 
-/** @type {import('rollup').RollupOptions}  */
-const options  ={
-    input: 'src/index.ts',
-    external:['canvas'],
-    output: [
-        genOption('esm'),
-        genOption('cjs'),
-    ],
-    plugins: [
-        typescript({
-            rootDir:"./src",
-            declaration:true,
-        }),
-        terser()
-    ],
+/** @type {import('rollup').RollupOptions[]}  */
+const options = [
+    {
+        input: 'src/index.ts',
+        external: ['canvas'],
+        output: [
+            genOption('esm'),
+            genOption('cjs'),
+        ],
+        plugins: [
+            typescript({
+                rootDir: "./src",
+                declaration: false,
+            }),
+            terser(),
+        ],
 
-}
+    },
+    {
+        input: 'src/index.ts',
+        output: [{file: "lib/index.d.ts", format: "es"}],
+        plugins: [dts()],
+    },]
 
 export default options;
