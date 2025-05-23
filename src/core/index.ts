@@ -22,9 +22,10 @@ export type ImgSplitItemOption = {
  *
  */
 export type ImgSplitOption = {
-    src: Image | string
+    src: Buffer | string
     height?: number,
     count?: number,
+    forceOuputDataURL?: boolean,
     items?: ImgSplitItemOption[]
 }
 /**
@@ -35,6 +36,7 @@ export type ImgSplitOption = {
  */
 export type ouputDataType = ImgSplitItemOption & {
     dataURL?: string,
+    blob?: Blob,
     buffer?: Buffer,
 }
 
