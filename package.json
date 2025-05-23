@@ -13,7 +13,8 @@
     "url": "https://github.com/imgsplit/imgsplit/issues"
   },
   "keywords": [
-    "imagesplit","imagesplitter"
+    "imagesplit",
+    "imagesplitter"
   ],
   "description": "An image splitter",
   "scripts": {

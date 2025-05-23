@@ -22,7 +22,10 @@ const options  ={
         genOption('cjs'),
     ],
     plugins: [
-        typescript(),
+        typescript({
+            rootDir:"./src",
+            declaration:true,
+        }),
         terser()
     ],
 
