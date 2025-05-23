@@ -1,5 +1,3 @@
-import {Image} from "canvas";
-
 /**
  * [en] item options
  *      x & width is optional
@@ -23,8 +21,14 @@ export type ImgSplitItemOption = {
  */
 export type ImgSplitOption = {
     src: Buffer | string
+    /**
+     * @default 256
+     */
     height?: number,
     count?: number,
+    /**
+     * @default true
+     */
     forceOuputDataURL?: boolean,
     items?: ImgSplitItemOption[]
 }
@@ -35,9 +39,21 @@ export type ImgSplitOption = {
  *
  */
 export type ouputDataType = ImgSplitItemOption & {
-    dataURL?: string,
-    blob?: Blob,
-    buffer?: Buffer,
+
+    /**
+     * base64
+     */
+    dataURL?: string;
+    /**
+     * [en] for browser
+     * [zh] 浏览器中输出
+     */
+    blob?: Blob;
+    /**
+     * [en] for nodejs
+     * [zh] node环境输出
+     */
+    buffer?: Buffer;
 }
 
 export * from './imgsplit';

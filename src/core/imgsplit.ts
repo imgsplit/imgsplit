@@ -2,7 +2,7 @@ import {createCanvas, Image, loadImage} from "canvas";
 import {ImgSplitItemOption, ImgSplitOption, ouputDataType} from "./index";
 import {getBlob} from "../utils/fileutil";
 
-export const defaultOption: Partial<ImgSplitOption> = {
+const defaultOption: Partial<ImgSplitOption> = {
     forceOuputDataURL: true,
     height: 256
 }
@@ -45,7 +45,7 @@ export async function imgsplit(options: ImgSplitOption): Promise<ouputDataType[]
 
 export async function imgsplit(
     options: ImgSplitOption | Buffer | string,
-    height: number = defaultOption.height
+    height: number = 256
 ): Promise<ouputDataType[]> {
     let ops: ImgSplitOption;
 
