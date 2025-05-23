@@ -4,12 +4,10 @@
 		"module": "ESNext",
 		"moduleResolution": "bundler",
 		"outDir": "./lib",
-		"rootDir": "./src",
-		"declaration": true,
+		"rootDir": "./",
 		"strict": false,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"sourceMap": true,
 		"noEmit": true
 	},
 	"include": ["src"]
