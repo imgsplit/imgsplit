@@ -17,18 +17,31 @@
 
 
 ## Install
-```sh [npm]
-$ npm i @imgsplit/core
+```bash [npm]
+npm i @imgsplit/core
 ```
 or
-```sh [yarn]
-$ yarn add @imgsplit/core
+```bash [yarn]
+yarn add @imgsplit/core
 ```
 
 ## Usage
 ```ts
-import { imgsplit } from "@imgsplit/core";
+import {imgsplit} from "@imgsplit/core";
 
-const result = await imgsplit('=> imgUrl <=',256);
+const result = await imgsplit(
+    'https://imgsplit.github.io/images/example.png',
+    256
+);
 
+for (let i = 0; i < result.length; i++) {
+    const {
+        x, y,
+        width, height,
+        dataURL
+    } = result[i];
+
+    // ...
+
+}
 ```
