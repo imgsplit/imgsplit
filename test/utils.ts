@@ -1,11 +1,11 @@
 import {mkdirSync, writeFileSync} from "fs";
 import {test} from "vitest";
-import {ouputDataType} from "../src";
+import {OuputDataType} from "../src";
 
 const inputDir = 'test/assets/';
 const outputDir = 'test/.out/';
 
-export function createTest(testName: string, fn: (inputDir: string, outputDir: string) => Promise<ouputDataType[]>) {
+export function createTest(testName: string, fn: (inputDir: string, outputDir: string) => Promise<OuputDataType[]>) {
     testName = testName.replace(/\s/ig, '-')
     test(testName, async () => {
         const arr = await fn(inputDir, outputDir);

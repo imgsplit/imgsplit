@@ -1,9 +1,9 @@
 import {expect} from 'vitest'
-import {imgsplit,ouputDataType} from "../src";
+import {imgsplit,OuputDataType} from "../src";
 import {createTest} from "./utils";
 
 
-createTest('with height default', async (inputDir: string): Promise<ouputDataType[]> => {
+createTest('with height default', async (inputDir: string): Promise<OuputDataType[]> => {
     const arr = await imgsplit(`${inputDir}test.jpg`);
     expect(arr.length).toBe(16);
 
@@ -11,7 +11,7 @@ createTest('with height default', async (inputDir: string): Promise<ouputDataTyp
 
 });
 
-createTest('with height custom', async (inputDir: string): Promise<ouputDataType[]> => {
+createTest('with height custom', async (inputDir: string): Promise<OuputDataType[]> => {
     const arr = await imgsplit(`${inputDir}test.jpg`, 500);
     expect(arr.length).toBe(9);
 
@@ -19,7 +19,7 @@ createTest('with height custom', async (inputDir: string): Promise<ouputDataType
 
 });
 
-createTest('with count', async (inputDir: string): Promise<ouputDataType[]> => {
+createTest('with count', async (inputDir: string): Promise<OuputDataType[]> => {
     const arr = await imgsplit({
         src: `${inputDir}test.jpg`,
         count: 5
@@ -30,7 +30,7 @@ createTest('with count', async (inputDir: string): Promise<ouputDataType[]> => {
 
 });
 
-createTest('with items option', async (inputDir: string): Promise<ouputDataType[]> => {
+createTest('with items option', async (inputDir: string): Promise<OuputDataType[]> => {
     const arr = await imgsplit({
         src: `${inputDir}test.jpg`,
         items: [

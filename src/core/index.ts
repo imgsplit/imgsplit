@@ -38,7 +38,7 @@ export type ImgSplitOption = {
  * [zh] 输出结果
  *
  */
-export type ouputDataType = ItemOption & {
+export type OuputDataType = ItemOption & {
 
     /**
      * base64
