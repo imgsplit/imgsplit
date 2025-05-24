@@ -1,5 +1,5 @@
 import {createCanvas, Image, loadImage} from "canvas";
-import {ItemOption, ImgSplitOption, ouputDataType} from "./index";
+import {ItemOption, ImgSplitOption, OuputDataType} from "./index";
 import {getBlob, getMimeFromFilename} from "../utils/fileutil";
 
 const defaultOption: Partial<ImgSplitOption> = {
@@ -18,7 +18,7 @@ const defaultOption: Partial<ImgSplitOption> = {
  * @param height - [en] item height
  * @param height - [zh] 分割高度
  */
-export async function imgsplit(imgurl: string, height?: number): Promise<ouputDataType[]>;
+export async function imgsplit(imgurl: string, height?: number): Promise<OuputDataType[]>;
 
 /**
  * [en] image split
@@ -31,7 +31,7 @@ export async function imgsplit(imgurl: string, height?: number): Promise<ouputDa
  * @param height - [en] item height
  * @param height - [zh] 分割高度
  */
-export async function imgsplit(buffer: Buffer, height?: number): Promise<ouputDataType[]>;
+export async function imgsplit(buffer: Buffer, height?: number): Promise<OuputDataType[]>;
 /**
  * [en] image split
  *
@@ -40,13 +40,13 @@ export async function imgsplit(buffer: Buffer, height?: number): Promise<ouputDa
  * @param options - [en] options
  * @param options - [zh] 选项
  */
-export async function imgsplit(options: ImgSplitOption): Promise<ouputDataType[]>;
+export async function imgsplit(options: ImgSplitOption): Promise<OuputDataType[]>;
 
 
 export async function imgsplit(
     options: ImgSplitOption | Buffer | string,
     height: number = 256
-): Promise<ouputDataType[]> {
+): Promise<OuputDataType[]> {
     let ops: ImgSplitOption;
 
     if ((typeof options) === 'object' && options.hasOwnProperty('src')) {
@@ -65,7 +65,7 @@ export async function imgsplit(
         crossOrigin: 'anonymous'
     });
 
-    const distImgArr: ouputDataType[] = [];
+    const distImgArr: OuputDataType[] = [];
     if (!ops.items && (ops.height || ops.count)) {
         if (!ops.height && ops.count) {
             ops.height = Math.ceil(srcImage.height / ops.count);
@@ -109,7 +109,7 @@ export async function imgsplit(
         const ctx = canvas.getContext('2d');
         ctx.drawImage(srcImage, -ops.items[i].x, -ops.items[i].y);
 
-        const result: ouputDataType = {
+        const result: OuputDataType = {
             x: ops.items[i].x,
             y: ops.items[i].y,
             width: ops.items[i].width,
