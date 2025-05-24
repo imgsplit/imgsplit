@@ -6,11 +6,11 @@
  *      x 和 width 为可选项
  *
  */
-export type ImgSplitItemOption = {
+export type ItemOption = {
     x?: number,
     y: number,
     width?: number,
-    height: number
+    height?: number
 }
 
 /**
@@ -30,7 +30,7 @@ export type ImgSplitOption = {
      * @default true
      */
     forceOuputDataURL?: boolean,
-    items?: ImgSplitItemOption[]
+    items?: ItemOption[]
 }
 /**
  * [en] ouputdata
@@ -38,7 +38,7 @@ export type ImgSplitOption = {
  * [zh] 输出结果
  *
  */
-export type ouputDataType = ImgSplitItemOption & {
+export type ouputDataType = ItemOption & {
 
     /**
      * base64

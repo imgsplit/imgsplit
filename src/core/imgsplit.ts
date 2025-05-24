@@ -1,5 +1,5 @@
 import {createCanvas, Image, loadImage} from "canvas";
-import {ImgSplitItemOption, ImgSplitOption, ouputDataType} from "./index";
+import {ItemOption, ImgSplitOption, ouputDataType} from "./index";
 import {getBlob} from "../utils/fileutil";
 
 const defaultOption: Partial<ImgSplitOption> = {
@@ -71,7 +71,7 @@ export async function imgsplit(
 
         ops.items = [];
         for (let y = 0; y < srcImage.height; y += ops.height) {
-            const item: ImgSplitItemOption = {
+            const item: ItemOption = {
                 y: y,
                 height: ops.height
             };
@@ -80,6 +80,19 @@ export async function imgsplit(
             }
             ops.items.push(item);
         }
+    }
+
+    // check & fill height
+    for (let i = 0; i < ops.items.length; i++) {
+        if (ops.items[i].height) continue;
+
+        let nextY: number = srcImage.height;
+        if (ops.items[i + 1] && ops.items[i + 1].y) {
+            nextY = ops.items[i + 1].y
+        }
+
+        ops.items[i].height = nextY - ops.items[i].y;
+
     }
 
     // fill x & width
