@@ -1,5 +1,5 @@
 import {createCanvas, Image, loadImage} from "canvas";
-import {ItemOption, ImgSplitOption, OuputDataType} from "./index";
+import {ImgSplitOption, ItemOption, OuputDataType} from "./index";
 import {getBlob, getMimeFromFilename} from "../utils/fileutil";
 
 const defaultOption: Partial<ImgSplitOption> = {
@@ -59,7 +59,7 @@ export async function imgsplit(
         }
     }
 
-    const mime = getMimeFromFilename(ops.src);
+    const mime = await getMimeFromFilename(ops.src);
 
     let srcImage: Image = await loadImage(ops.src, {
         crossOrigin: 'anonymous'
