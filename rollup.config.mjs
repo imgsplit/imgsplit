@@ -18,7 +18,7 @@ function genOption(format) {
 const options = [
     {
         input: 'src/index.ts',
-        external: ['canvas'],
+        external: ['canvas','file-type'],
         output: [
             genOption('esm'),
             genOption('cjs'),
