@@ -50,7 +50,7 @@ export async function imgsplit(
     let ops: ImgSplitOption;
 
     if ((typeof options) === 'object' && options.hasOwnProperty('src')) {
-        ops = options as ImgSplitOption;
+        ops = {...defaultOption,...options as ImgSplitOption};
     } else {
         ops = {
             ...defaultOption,
