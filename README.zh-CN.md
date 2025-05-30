@@ -1,4 +1,5 @@
 # ImgSplit
+[![NPM Version](https://img.shields.io/npm/v/@imgsplit/core)](https://www.npmjs.com/package/@imgsplit/core) [![NPM Downloads](https://img.shields.io/npm/dm/@imgsplit/core)](https://www.npmjs.com/package/@imgsplit/core)
 <p style="text-align:center;" align="center">
     <picture align="center">
         <img align="center" alt="ImgSplit" width="200" src="https://imgsplit.github.io/images/pic.png" />
